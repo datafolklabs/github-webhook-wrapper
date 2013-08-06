@@ -80,3 +80,6 @@ The entire `payload` is passed as a single JSON string argument to every
 script.  The payload structure is outlined here:
 
  * https://help.github.com/articles/post-receive-hooks
+
+
+Again, see the examples directory for usage help.
