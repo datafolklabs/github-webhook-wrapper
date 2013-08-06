@@ -23,4 +23,5 @@ possible_scripts = [
 # Run all scripts that exist for either repo, repo-branch, or all
 for script in possible_scripts:
     if os.path.exists(script):
-        os.system('%s \"%s\"' % (script, json_payload))
+        os.system("%s \'%s\'" % (script, json_payload))
+        

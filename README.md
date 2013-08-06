@@ -59,6 +59,8 @@ It is not required to use Apache, you simply need to configure whatever web
 server to honor '.cgi' scripts.  The following is an example config, note that
 we obscure the location by adding an MD5 sum to the Alias.  This is not
 necessary, but will help prevent anyone randomly accessing your hook URL.  
+Likely the simplest approach is to just restrict who can access the URL.. 
+currently the GitHub sources are `204.232.175.64/27` and `192.30.252.0/22`.
 You may consider adding HTTP Basic Authentication, SSL, and adding auth creds 
 to the URL also, however that is beyond the scope of this example.
 
