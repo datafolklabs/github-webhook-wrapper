@@ -20,5 +20,5 @@ if os.path.exists(os.path.join(script_dir, repo)):
 if os.path.exists(os.path.join(script_dir, "%s-%s" % (repo, branch))):
     os.system(os.path.join(script_dir, "%s-%s" % (repo, branch)))
   
-if os.path.exists(os.path.join(script_dir, 'all'):
+if os.path.exists(os.path.join(script_dir, 'all')):
     os.system(os.path.join(script_dir, "all"))
