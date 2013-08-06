@@ -2,23 +2,28 @@ GitHub Webhook Wrapper
 ======================
 
 The GitHub Webhook Wrapper allows one to maintain a single endpoint (web
-URL) for all GitHub web hooks.  The endpoint is a simple Python CGI script 
-which parses the `payload` from the GitHub WebHook, and launches local scripts
-(if they exist) in the following order:
+URL) for all GitHub web hooks, as defined here:
+
+ * https://help.github.com/articles/post-receive-hooks
+ 
+The endpoint is a simple Python CGI script which parses the `payload` from 
+the GitHub WebHook, and launches local scripts (if they exist) in the 
+following order:
 
  * scripts/repo
  * scripts/repo-branch
  * scripts/all
  
 
-For example, if you're repo name were 'my-awesome-repo' and you committed data
-to the 'master' branch, the following scripts would be executed (only if they
-exist):
+For example, if your repo were named 'my-awesome-repo' and you committed data
+to the 'master' branch, the following scripts would be executed (again, only 
+if they exist):
 
  * scripts/my-awesome-repo
  * scripts/my-awesome-repo-master
  * scripts/all
  
+
 Note that the 'all' script will be called for every commit, to any repo, and
 any branch.
 
@@ -33,7 +38,7 @@ $ git clone https://github.com/datafolklabs/github-webhook-wrapper.git
 ```
 
 
-Once you have clone the repository, create a script in the scripts directory:
+Create a script:
 
 ```
 
@@ -44,7 +49,8 @@ $ chmod +x github-webhook-wrapper/scripts/my-repo
 ```
 
 Note that the script can be any scripting language you prefer, however it 
-*must* have a #!shebang line at the top of the file, and must be executable.
+*must* have a #!shebang line at the top of the file, and must be executable
+by the web server (i.e. www-root, apache, etc).
 
 See the `examples` directory for usage help.
 
@@ -69,3 +75,10 @@ And restart Apache. In this example, your URL endpoint would be:
 http://example.com/5972d04b6930419baf200bcfab8ca71f/hook.cgi
 ```
 
+Accessing The Payload Data
+--------------------------
+
+The entire `payload` is passed as a single JSON string argument to every
+script.  The payload structure is outlined here:
+
+ * https://help.github.com/articles/post-receive-hooks
