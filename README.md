@@ -41,11 +41,9 @@ $ git clone https://github.com/datafolklabs/github-webhook-wrapper.git
 Create a script:
 
 ```
-
 $ touch github-webhook-wrapper/scripts/my-repo
 
 $ chmod +x github-webhook-wrapper/scripts/my-repo
-
 ```
 
 Note that the script can be any scripting language you prefer, however it 
